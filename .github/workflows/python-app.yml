@@ -6,11 +6,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Using Ubuntu 24.04 as default
+    runs-on: ubuntu-22.04  # Change to Ubuntu 22.04
 
     strategy:
       matrix:
-        python-version: [3.7, 3.9, 3.11]  # New Python versions that should work
+        python-version: [3.8, 3.9, 3.10]  # Use stable Python versions
 
     steps:
     - uses: actions/checkout@v3
