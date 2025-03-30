@@ -6,11 +6,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # Change to Ubuntu 22.04
+    runs-on: ubuntu-24.04  # Specify Ubuntu version
 
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.10]  # Use stable Python versions
+        python-version: ['3.14.0-alpha.6']  # Use the alpha version
 
     steps:
     - uses: actions/checkout@v3
@@ -19,6 +19,8 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+        architecture: 'x64'  # or arm64 depending on your setup
+        cache: 'pip'
 
     - name: Install dependencies
       run: |
@@ -33,4 +35,3 @@ jobs:
 
     - name: Run tests
       run: make test
-  
