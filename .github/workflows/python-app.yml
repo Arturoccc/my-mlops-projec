@@ -6,11 +6,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # Switch to Ubuntu 22.04
 
     strategy:
       matrix:
-        python-version: [3.8, 3.10, 3.12]
+        python-version: [3.8, 3.10, 3.12]  # Stick with supported versions
 
     steps:
     - uses: actions/checkout@v3
